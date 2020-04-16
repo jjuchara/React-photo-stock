@@ -1,0 +1,18 @@
+
+.Input button {
+  margin-right: -3px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.Input button:focus {
+  box-shadow:none;
+}
+
+.Input input:focus {
+  box-shadow:none
+}

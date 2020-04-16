@@ -1,0 +1,54 @@
+.Card {
+    position: relative;
+    transition: box-shadow .5s;
+}
+
+.Card:hover {
+    box-shadow: 5px 5px 9px rgba(0, 0, 0, .7),
+    -5px -5px 9px rgba(0, 0, 7, .7);
+    transition: box-shadow .5s;
+}
+
+.Card h5 {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+.Card:hover h5 {
+    opacity: 1;
+    transition: opacity .5s;
+}
+
+.Card time {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+.Card:hover time {
+    opacity: 1;
+    transition: opacity .5s;
+}
+
+.Card span {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+.Card span i {
+    transform: translateY(6px);
+}
+
+.Card:hover span {
+    opacity: 1;
+    transition: opacity .5s;
+}
+

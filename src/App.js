@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
+import { connect } from "react-redux";
+import Layout from "./hoc/Layout/Layout";
+import Main from "./containers/Main/Main";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+
+    const routes = (
+        <Switch>
+          <Route path='/' exact component={Main} />
+          <Redirect to='/'/>
+        </Switch>
+    )
+
+    return (
+        <Layout>
+          { routes }
+        </Layout>
+    );
+  }
 }
 
-export default App;
+function mapStateToProps( state ) {
+  return {}
+}
+
+function mapDispatchToProps( dispatch ) {
+  return {}
+}
+
+export default withRouter( connect( mapStateToProps, mapDispatchToProps )( App ) );
+
