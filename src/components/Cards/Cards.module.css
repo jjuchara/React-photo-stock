@@ -1,5 +1,7 @@
 .Cards {
-    margin: 0 auto;
-    max-width: 90%;
-
+    margin: 40px auto;
+    max-width: 85%;
+    columns: 3;
+    column-gap: 40px;
 }
+

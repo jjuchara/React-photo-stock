@@ -7,3 +7,17 @@
     right: 0;
     bottom: 0;
 }
+
+.btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    color: #fff;
+    z-index: 99;
+    background: transparent;
+    border: none;
+}
+
+.btn:focus{
+    outline: none !important;
+}

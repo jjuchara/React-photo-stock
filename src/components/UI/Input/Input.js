@@ -16,6 +16,9 @@ const Input = props => {
             <input id="search" type="text"
                    className="form-control form-control-lg border-white border-left-0 rounded-right-0 p-0"
                    placeholder="Search photo"
+                   required
+                   value={props.value}
+                   onChange={props.onChange}
             />
         </form>
     )

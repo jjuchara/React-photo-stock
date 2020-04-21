@@ -1,25 +1,40 @@
 .Card {
     position: relative;
-    transition: box-shadow .5s;
+    transition: box-shadow.5s;
+    width: 100%;
+    break-inside: avoid;
 }
 
 .Card:hover {
-    box-shadow: 5px 5px 9px rgba(0, 0, 0, .7),
-    -5px -5px 9px rgba(0, 0, 7, .7);
-    transition: box-shadow .5s;
+    box-shadow: 10px 10px 5px rgba(0,0,0,0.75);
+    cursor: zoom-in;
 }
 
-.Card h5 {
+.Card a {
     position: absolute;
     bottom: 0;
     left: 10px;
     opacity: 0;
     transition: opacity .5s;
+    color:#fff;
 }
 
-.Card:hover h5 {
+.Card:hover a {
     opacity: 1;
     transition: opacity .5s;
+    color:#fff;
+}
+
+.Card img {
+    max-width: 100%;
+    transition: filter .1s;
+
+
+}
+
+.Card:hover img {
+    filter: brightness(50%);
+    transition: filter .1s;
 }
 
 .Card time {
