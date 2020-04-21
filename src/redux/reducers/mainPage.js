@@ -9,7 +9,7 @@ import {
 const initialState = {
     value: '',
     data: [],
-    count: 10,
+    count: 4,
     page: 1
 };
 
@@ -24,7 +24,7 @@ export default function mainPageReducer(state = initialState, action) {
         case FETCH_MORE_PHOTOS:
             return {
                 ...state,
-                data: action.newPhoto,
+                data: action.photo,
                 page: action.page
             }
         case FETCH_LIST_PHOTOS:

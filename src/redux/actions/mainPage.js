@@ -77,12 +77,13 @@ export function fetchMorePhotos() {
             const response = await axios.get(`https://api.unsplash.com/photos?client_id=${ACCESS_KEY}&page=${page}&per_page=${count}`)
             const data = response.data
 
-            const newPhoto = photo.concat(data)
-            console.log('newPhoto', newPhoto)
+            photo.push(...data)
+
+            console.log('push',photo)
 
             dispatch({
                 type: FETCH_MORE_PHOTOS,
-                newPhoto,
+                photo,
                 page
             })
 
