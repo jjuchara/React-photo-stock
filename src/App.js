@@ -6,31 +6,30 @@ import Main from "./containers/Main/Main";
 import Photo from "./components/Photo/Photo";
 
 class App extends Component {
-  render() {
+    render() {
 
-    const routes = (
-        <Switch>
-          <Route path='/' exact component={Main} />
-          <Route path='/photo' exact component={Photo} />
-          <Redirect to='/'/>
-        </Switch>
-    )
+        const routes = (
+            <Switch>
+                <Route path='/' exact component={Main}/>
+                {this.props.isOpen ? <Route path='/photo/:id' component={Photo}/> : null}
+                <Redirect to='/' exact/>
+            </Switch>
+        )
 
-    return (
-        <Layout>
-          { routes }
-        </Layout>
-    );
-  }
+        return (
+            <Layout>
+                {routes}
+            </Layout>
+        );
+    }
 }
 
-function mapStateToProps( state ) {
-  return {}
+function mapStateToProps(state) {
+    return {
+        isOpen: state.mainPage.isOpen
+    }
 }
 
-function mapDispatchToProps( dispatch ) {
-  return {}
-}
 
-export default withRouter( connect( mapStateToProps, mapDispatchToProps )( App ) );
+export default withRouter(connect(mapStateToProps)(App));
 

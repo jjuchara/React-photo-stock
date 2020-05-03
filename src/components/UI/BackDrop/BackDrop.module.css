@@ -16,8 +16,17 @@
     z-index: 99;
     background: transparent;
     border: none;
+    transition: transform .3s, color .3s;
+
+
 }
 
-.btn:focus{
+.btn:focus {
     outline: none !important;
+}
+
+.btn:hover {
+    transform: scale(1.3);
+    color: #09aac9;
+    transition: transform .3s, color .3s;
 }

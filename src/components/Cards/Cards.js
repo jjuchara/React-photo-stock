@@ -1,13 +1,11 @@
 import React from 'react';
-import classes from './Cards.module.css';
+import classes from './Cards.module.scss';
 
 const Cards = props => {
     return (
 
         <div className={classes.Cards}>
-            {/*<div className="row">*/}
             {props.children}
-            {/*</div>*/}
         </div>
 
     );
