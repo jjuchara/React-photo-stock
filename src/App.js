@@ -16,7 +16,7 @@ class App extends Component {
             <Switch>
                 <Route path='/' component={Main}/>
                 {this.props.isOpen ? <Route path='/photo/:id' component={Photo}/> : null}
-                {/*<Redirect to='/'/>*/}
+                <Redirect to='/'/>
             </Switch>
         )
 
