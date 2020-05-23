@@ -9,37 +9,42 @@ import {
 import Cards from "../../components/Cards/Cards";
 import Card from "../../components/Card/Card";
 import Loader from "../../components/UI/Loader/Loader";
-import Unsplash, {toJson} from "unsplash-js";
+import Unsplash  from "unsplash-js";
 
 const ACCESS_KEY = process.env.REACT_APP_ACCESS_KEY
 
-const SECRET = process.env.REACT_APP_SECRET
+const SECRET = process.env.REACT_APP_SECRET_KEY
 
-const unsplash = new Unsplash({
-    accessKey: ACCESS_KEY,
-    secret: SECRET,
-    callbackUrl: "http://localhost:3000/"
-});
+const authentication = () => {
 
+    const unsplash = new Unsplash({
+        accessKey: ACCESS_KEY,
+        secret: SECRET,
+        callbackUrl: "http://localhost:3000/"
+    });
+
+    const authenticationUrl = unsplash.auth.getAuthenticationUrl([
+        "public",
+        "write_likes",
+    ]);
+
+    window.location.assign(authenticationUrl);
+
+
+    const code = window.location.search.split('code=')[1];
+
+    if (code) {
+        unsplash.auth.userAuthentication(code)
+            .then(res => res.json())
+            .then(json => unsplash.auth.setBearerToken(json.access_token))
+    }
+
+}
 
 class Main extends Component {
 
     componentDidMount() {
-
-        const authenticationUrl = unsplash.auth.getAuthenticationUrl([
-            "public",
-            "write_likes",
-        ]);
-
-        window.location.assign(authenticationUrl);
-
-        const code = window.location.search.split('code=')[1];
-
-        if (code) {
-            unsplash.auth.userAuthentication(code)
-                .then(res => res.json())
-                .then(json => unsplash.auth.setBearerToken(json.access_token))
-        }
+        authentication()
 
         this.props.fetchListPhotos();
     }

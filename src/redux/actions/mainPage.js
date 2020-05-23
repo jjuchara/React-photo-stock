@@ -9,7 +9,7 @@ import axios from 'axios';
 
 const ACCESS_KEY = process.env.REACT_APP_ACCESS_KEY
 
-// const SECRET = process.env.REACT_APP_SECRET
+// const SECRET = process.env.REACT_APP_SECRET_KEY
 
 export function fetchPhotoByQuery(e) {
     e.preventDefault()

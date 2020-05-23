@@ -5,14 +5,18 @@ import Layout from "./hoc/Layout/Layout";
 import Main from "./containers/Main/Main";
 import Photo from "./components/Photo/Photo";
 
+
+
 class App extends Component {
+
+
     render() {
 
         const routes = (
             <Switch>
-                <Route path='/' exact component={Main}/>
+                <Route path='/' component={Main}/>
                 {this.props.isOpen ? <Route path='/photo/:id' component={Photo}/> : null}
-                <Redirect to='/' exact/>
+                {/*<Redirect to='/'/>*/}
             </Switch>
         )
 
